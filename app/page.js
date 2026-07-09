@@ -107,7 +107,7 @@ const initialSession = {
   color: null,
   customColor: "#c5ccd8",
   shape: null,
-  bodyArea: null,
+  bodyArea: [],
   bodyFeel: null,
   answers: {}
 };
@@ -325,6 +325,7 @@ function StepFrame({
   description,
   note,
   children,
+  actions,
   onSkip,
   onBack,
   center = false
@@ -337,6 +338,7 @@ function StepFrame({
         {description ? <p>{description}</p> : null}
       </div>
       <div className="step-content">{children}</div>
+      {actions ? <div className="step-actions">{actions}</div> : null}
       <div className="panel-footer">
         {onBack ? (
           <button className="nav-button" onClick={onBack} type="button">
@@ -567,7 +569,29 @@ export default function HomePage() {
   }
 
   function chooseBodyArea(bodyArea) {
-    setSession((prev) => ({ ...prev, bodyArea }));
+    setSession((prev) => {
+      const selectedAreas = Array.isArray(prev.bodyArea) ? prev.bodyArea : [];
+
+      if (bodyArea === "全身" || bodyArea === "说不清") {
+        return {
+          ...prev,
+          bodyArea: selectedAreas.length === 1 && selectedAreas[0] === bodyArea ? [] : [bodyArea]
+        };
+      }
+
+      const filteredAreas = selectedAreas.filter((area) => area !== "全身" && area !== "说不清");
+      const nextAreas = filteredAreas.includes(bodyArea)
+        ? filteredAreas.filter((area) => area !== bodyArea)
+        : [...filteredAreas, bodyArea];
+
+      return {
+        ...prev,
+        bodyArea: nextAreas
+      };
+    });
+  }
+
+  function continueFromBodyArea() {
     goToStep("body-feel");
   }
 
@@ -600,7 +624,7 @@ export default function HomePage() {
       colorLabel: session.color?.label || "自定义颜色",
       colorValue: accentColor,
       shape: session.shape?.label || "",
-      bodyArea: session.bodyArea || "",
+      bodyArea: Array.isArray(session.bodyArea) ? session.bodyArea.join("、") : session.bodyArea || "",
       bodyFeel: session.bodyFeel || "",
       change: finalChange || ""
     };
@@ -734,8 +758,17 @@ export default function HomePage() {
         {currentStep === "body-area" ? (
           <StepFrame
             title="它主要停留在哪里？"
-            description="可以点身体上的位置，也可以选说不清。"
+            description="可以同时点多个位置。如果更像全身都有，就直接选全身。"
             note="停留的位置"
+            actions={(
+              <button
+                className="primary-button"
+                onClick={continueFromBodyArea}
+                type="button"
+              >
+                继续
+              </button>
+            )}
             onBack={backFromStep}
             onSkip={handleSkip}
           >
@@ -753,7 +786,7 @@ export default function HomePage() {
                 {bodyAreaOptions.map((area) => (
                   <button
                     key={area.label}
-                    className={`body-point ${session.bodyArea === area.label ? "selected" : ""}`}
+                    className={`body-point ${session.bodyArea.includes(area.label) ? "selected" : ""}`}
                     onClick={() => chooseBodyArea(area.label)}
                     style={{ top: area.top, left: area.left }}
                     type="button"

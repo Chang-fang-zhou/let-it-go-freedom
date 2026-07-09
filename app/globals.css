@@ -246,6 +246,10 @@ button {
   margin-top: 1.6rem;
 }
 
+.step-actions {
+  margin-top: 1.1rem;
+}
+
 .home-actions,
 .panel-footer {
   display: grid;
