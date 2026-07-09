@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="10%" y1="8%" x2="88%" y2="92%">
+      <stop offset="0%" stop-color="#f8f1ea"/>
+      <stop offset="48%" stop-color="#eef1f5"/>
+      <stop offset="100%" stop-color="#f3ecf6"/>
+    </linearGradient>
+    <radialGradient id="mistA" cx="34%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".92"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mistB" cx="68%" cy="68%" r="52%">
+      <stop offset="0%" stop-color="#d7c8d6" stop-opacity=".7"/>
+      <stop offset="100%" stop-color="#d7c8d6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="52%">
+      <stop offset="0%" stop-color="#c7d4e2" stop-opacity=".9"/>
+      <stop offset="55%" stop-color="#d9c4bc" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#d9c4bc" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="154" fill="url(#bg)"/>
+  <circle cx="166" cy="132" r="120" fill="url(#mistA)"/>
+  <circle cx="362" cy="362" r="150" fill="url(#mistB)"/>
+  <circle cx="256" cy="270" r="126" fill="url(#glow)" filter="url(#blur)"/>
+  <path d="M258 126C335 137 399 193 409 267C420 355 367 425 286 444C213 461 137 427 101 356C70 298 93 228 148 196C200 168 261 185 291 231C315 270 311 322 275 351C248 373 208 376 185 354C160 333 155 301 169 274" fill="none" stroke="#706b69" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
+</svg>
