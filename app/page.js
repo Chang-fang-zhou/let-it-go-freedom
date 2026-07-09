@@ -13,7 +13,23 @@ const colorOptions = [
   { id: "violet", label: "紫色", value: "#b6abc7", glow: "#ece6f3" },
   { id: "muddy-yellow", label: "浑黄", value: "#c2ba92", glow: "#ece8d2" },
   { id: "ink-green", label: "墨绿", value: "#91a79d", glow: "#dde8e2" },
-  { id: "mist-white", label: "雾白", value: "#dfe2e5", glow: "#f7f8f9" }
+  { id: "mist-white", label: "雾白", value: "#dfe2e5", glow: "#f7f8f9" },
+  { id: "rose-red", label: "玫红", value: "#cf7d92", glow: "#f0d3dc" },
+  { id: "coral", label: "珊瑚", value: "#e09a86", glow: "#f5d9cf" },
+  { id: "apricot", label: "杏橘", value: "#e4b07d", glow: "#f6e1c8" },
+  { id: "amber", label: "琥珀", value: "#d4ab54", glow: "#f1e2ba" },
+  { id: "sun-yellow", label: "亮黄", value: "#dec95f", glow: "#f5edbf" },
+  { id: "lime", label: "青柠", value: "#afca63", glow: "#e8f0c8" },
+  { id: "leaf-green", label: "叶绿", value: "#7fb06f", glow: "#d7e8d0" },
+  { id: "teal", label: "青绿", value: "#62ab98", glow: "#cde8e0" },
+  { id: "lake", label: "湖蓝", value: "#67adc7", glow: "#cfe7f0" },
+  { id: "sky", label: "天蓝", value: "#7eb9e4", glow: "#d9ebf8" },
+  { id: "cobalt", label: "钴蓝", value: "#5d7fd2", glow: "#cfd8f5" },
+  { id: "indigo", label: "靛蓝", value: "#6670bf", glow: "#d4d7f0" },
+  { id: "lavender", label: "薰衣草", value: "#a48bd8", glow: "#e5dbf8" },
+  { id: "orchid", label: "兰紫", value: "#bf8ad5", glow: "#eddcf5" },
+  { id: "plum", label: "梅紫", value: "#996d9f", glow: "#dfd0e2" },
+  { id: "brown", label: "棕褐", value: "#a48672", glow: "#e6dbd3" }
 ];
 
 const shapeOptions = [
@@ -21,11 +37,17 @@ const shapeOptions = [
   { id: "stone", label: "一块石头", icon: "stone" },
   { id: "fire", label: "一团火", icon: "fire" },
   { id: "swirl", label: "一个漩涡", icon: "swirl" },
+  { id: "waterflow", label: "一股水流", icon: "waterflow" },
   { id: "thorn", label: "一根刺", icon: "thorn" },
   { id: "web", label: "一张网", icon: "web" },
+  { id: "yarn", label: "一团线", icon: "yarn" },
   { id: "sphere", label: "一个球", icon: "sphere" },
-  { id: "wall", label: "一道墙", icon: "wall" },
-  { id: "cloud", label: "一片云", icon: "cloud" },
+  { id: "wall", label: "一堵墙", icon: "wall" },
+  { id: "bubble", label: "一个气泡", icon: "bubble" },
+  { id: "lightning", label: "一道闪电", icon: "lightning" },
+  { id: "blackhole", label: "一个黑洞", icon: "blackhole" },
+  { id: "volcano", label: "一座火山", icon: "volcano" },
+  { id: "feather", label: "一片羽毛", icon: "feather" },
   { id: "unclear", label: "说不清", icon: "unclear" }
 ];
 
@@ -113,18 +135,188 @@ function getShapePath(icon) {
       return "M119 22C136 48 145 66 133 93C146 85 162 89 171 104C184 126 179 155 160 174C142 191 113 196 88 187C55 174 39 138 50 108C61 79 89 68 98 46C102 36 106 28 119 22Z";
     case "swirl":
       return "M118 47C151 50 181 73 187 105C194 139 173 170 141 178C112 186 78 173 67 145C55 116 70 90 97 84C117 79 137 93 139 112C140 126 130 139 116 141C104 143 93 136 91 124";
+    case "waterflow":
+      return "M30 93C50 76 68 75 88 89C108 103 126 103 145 89C164 75 183 76 204 94M24 123C46 106 66 106 88 120C110 134 130 134 151 120C172 106 193 106 216 123M39 152C58 140 76 140 95 150C114 160 131 160 149 150C167 140 185 140 204 152";
     case "thorn":
       return "M38 176C55 151 79 127 103 102C126 78 150 52 177 36C164 63 156 78 150 96C163 91 181 91 197 96C174 106 157 121 140 138C117 162 91 186 59 196C51 188 45 183 38 176Z";
     case "web":
       return "M111 26C148 34 177 60 190 96C201 128 196 162 177 190M111 26C73 35 44 62 31 98C18 133 23 168 43 195M111 26L111 198M31 98L190 96M43 195L177 190M60 58C86 70 135 70 163 58M49 143C83 152 136 154 171 145M72 108C95 114 122 114 147 108";
+    case "yarn":
+      return "M111 33C152 33 186 67 186 109C186 151 152 185 111 185C69 185 35 151 35 109C35 67 69 33 111 33ZM64 95C80 79 100 73 122 76C142 79 157 93 163 112M53 123C69 136 88 143 109 143C132 143 151 132 166 116M81 57C93 69 102 83 106 98M121 121C130 129 139 138 147 150";
     case "sphere":
       return "M111 28C157 28 194 65 194 112C194 158 157 195 111 195C64 195 27 158 27 112C27 65 64 28 111 28Z";
     case "wall":
       return "M41 61C41 49 50 40 62 40H161C173 40 182 49 182 61V160C182 172 173 181 161 181H62C50 181 41 172 41 160V61Z";
-    case "cloud":
-      return "M72 177C44 177 22 156 22 128C22 102 41 82 67 80C76 50 102 28 134 28C171 28 201 58 201 95C223 100 240 120 240 145C240 163 229 177 210 177H72Z";
+    case "bubble":
+      return "M112 39C149 39 179 69 179 106C179 144 149 174 112 174C74 174 44 144 44 106C44 69 74 39 112 39ZM165 147C177 149 186 159 186 171C186 184 176 194 163 194C151 194 141 184 141 171C141 159 151 149 163 147ZM82 75C89 68 97 64 107 64";
+    case "lightning":
+      return "M122 28L73 111H111L94 192L157 96H116L122 28Z";
+    case "blackhole":
+      return "M110 39C150 39 182 71 182 111C182 151 150 183 110 183C70 183 38 151 38 111C38 71 70 39 110 39ZM110 71C132 71 149 89 149 111C149 133 132 151 110 151C88 151 71 133 71 111C71 89 88 71 110 71ZM110 93C120 93 128 101 128 111C128 121 120 129 110 129C100 129 92 121 92 111C92 101 100 93 110 93Z";
+    case "volcano":
+      return "M56 176L94 101L116 131L138 87L181 176ZM112 55C102 69 102 81 112 91M136 39C122 57 123 74 136 87M88 71C80 82 80 92 88 101";
+    case "feather":
+      return "M163 48C145 51 127 61 111 76C81 103 69 140 61 182M163 48C164 81 152 110 127 130C108 145 86 152 61 152M91 122C105 122 118 118 129 111M99 98C114 97 128 92 141 82M75 145C88 145 100 141 111 135";
     default:
-      return "M39 117C48 81 77 54 111 50C144 45 181 61 194 96C208 134 190 176 154 192C118 208 72 197 47 165C38 152 35 134 39 117Z";
+      return "M71 60C79 53 89 50 99 51C105 58 106 67 103 75C111 70 121 69 130 73C132 83 127 92 120 98C130 97 139 100 146 107C143 117 135 123 126 124C131 132 133 141 130 150C120 153 111 149 104 142C102 151 96 159 87 164C79 158 76 149 77 140C68 145 58 146 49 143C47 132 52 123 60 117C51 113 44 105 41 95C48 88 58 86 67 89C64 79 65 69 71 60Z";
+  }
+}
+
+function getShapeMood(icon, phase, isEnding) {
+  const safePhase = Math.max(0, phase);
+  const baseScale = 1 + safePhase * 0.04;
+  const endingScale = isEnding ? 1.12 : 1;
+  const defaultMood = {
+    shapeScale: baseScale * endingScale,
+    glowScale: (1.02 + safePhase * 0.05) * endingScale,
+    glowOpacity: isEnding ? 0.18 : Math.max(0.24, 0.34 - safePhase * 0.03),
+    strokeOpacity: isEnding ? 0.24 : Math.max(0.28, 0.82 - safePhase * 0.11),
+    fillOpacity: isEnding ? 0.11 : Math.max(0.14, 0.28 - safePhase * 0.025),
+    blur: isEnding ? 56 : 28 + safePhase * 5,
+    dash: safePhase > 2 ? "10 14" : "0",
+    rotate: 0
+  };
+
+  switch (icon) {
+    case "mist":
+      return {
+        ...defaultMood,
+        shapeScale: 1 + safePhase * 0.055 + (isEnding ? 0.12 : 0),
+        glowScale: 1.08 + safePhase * 0.08 + (isEnding ? 0.12 : 0),
+        glowOpacity: isEnding ? 0.14 : Math.max(0.2, 0.36 - safePhase * 0.04),
+        fillOpacity: isEnding ? 0.08 : Math.max(0.11, 0.24 - safePhase * 0.03),
+        strokeOpacity: isEnding ? 0.18 : Math.max(0.22, 0.62 - safePhase * 0.08),
+        blur: isEnding ? 72 : 34 + safePhase * 8,
+        dash: safePhase > 1 ? "6 16" : "0"
+      };
+    case "fire":
+    case "volcano":
+    case "lightning":
+      return {
+        ...defaultMood,
+        shapeScale: 1 + safePhase * 0.025 + (isEnding ? 0.06 : 0),
+        glowScale: 1 + safePhase * 0.04 + (isEnding ? 0.1 : 0),
+        glowOpacity: isEnding ? 0.16 : Math.max(0.22, 0.38 - safePhase * 0.035),
+        fillOpacity: isEnding ? 0.07 : Math.max(0.1, 0.26 - safePhase * 0.04),
+        strokeOpacity: isEnding ? 0.2 : Math.max(0.24, 0.86 - safePhase * 0.13),
+        blur: isEnding ? 64 : 26 + safePhase * 6,
+        dash: safePhase > 2 ? "14 10" : "0",
+        rotate: safePhase * 1.2
+      };
+    case "web":
+    case "yarn":
+      return {
+        ...defaultMood,
+        shapeScale: 1 + safePhase * 0.02 + (isEnding ? 0.04 : 0),
+        glowScale: 0.98 + safePhase * 0.03 + (isEnding ? 0.05 : 0),
+        glowOpacity: isEnding ? 0.12 : Math.max(0.18, 0.28 - safePhase * 0.025),
+        fillOpacity: isEnding ? 0.05 : Math.max(0.08, 0.18 - safePhase * 0.02),
+        strokeOpacity: isEnding ? 0.16 : Math.max(0.2, 0.7 - safePhase * 0.1),
+        blur: isEnding ? 46 : 24 + safePhase * 4,
+        dash: safePhase > 0 ? "4 12" : "0"
+      };
+    case "blackhole":
+    case "swirl":
+      return {
+        ...defaultMood,
+        shapeScale: 1 - Math.min(0.12, safePhase * 0.02) + (isEnding ? 0.08 : 0),
+        glowScale: 0.96 + safePhase * 0.02 + (isEnding ? 0.08 : 0),
+        glowOpacity: isEnding ? 0.1 : Math.max(0.16, 0.26 - safePhase * 0.03),
+        fillOpacity: isEnding ? 0.06 : Math.max(0.09, 0.2 - safePhase * 0.02),
+        strokeOpacity: isEnding ? 0.14 : Math.max(0.2, 0.74 - safePhase * 0.1),
+        blur: isEnding ? 52 : 25 + safePhase * 5,
+        dash: safePhase > 2 ? "9 18" : "0",
+        rotate: safePhase * -2.4
+      };
+    case "bubble":
+    case "feather":
+    case "waterflow":
+      return {
+        ...defaultMood,
+        shapeScale: 1 + safePhase * 0.05 + (isEnding ? 0.1 : 0),
+        glowScale: 1.05 + safePhase * 0.07 + (isEnding ? 0.12 : 0),
+        glowOpacity: isEnding ? 0.13 : Math.max(0.18, 0.3 - safePhase * 0.03),
+        fillOpacity: isEnding ? 0.06 : Math.max(0.09, 0.18 - safePhase * 0.025),
+        strokeOpacity: isEnding ? 0.16 : Math.max(0.2, 0.66 - safePhase * 0.09),
+        blur: isEnding ? 68 : 30 + safePhase * 7,
+        dash: safePhase > 1 ? "8 14" : "0",
+        rotate: icon === "feather" ? safePhase * 1.1 : 0
+      };
+    case "wall":
+    case "stone":
+      return {
+        ...defaultMood,
+        shapeScale: 1 + safePhase * 0.01 + (isEnding ? 0.03 : 0),
+        glowScale: 0.98 + safePhase * 0.025 + (isEnding ? 0.05 : 0),
+        glowOpacity: isEnding ? 0.12 : Math.max(0.18, 0.28 - safePhase * 0.025),
+        fillOpacity: isEnding ? 0.07 : Math.max(0.11, 0.24 - safePhase * 0.02),
+        strokeOpacity: isEnding ? 0.18 : Math.max(0.24, 0.78 - safePhase * 0.1),
+        blur: isEnding ? 48 : 24 + safePhase * 4
+      };
+    default:
+      return defaultMood;
+  }
+}
+
+function getShapeEcho(icon, mood) {
+  switch (icon) {
+    case "mist":
+      return {
+        scale: mood.shapeScale * 1.12,
+        rotate: mood.rotate - 4,
+        strokeOpacity: mood.strokeOpacity * 0.34,
+        fillOpacity: mood.fillOpacity * 0.42,
+        dash: "8 18",
+        translateX: -4,
+        translateY: 3
+      };
+    case "web":
+    case "yarn":
+      return {
+        scale: mood.shapeScale * 1.05,
+        rotate: mood.rotate + 3,
+        strokeOpacity: mood.strokeOpacity * 0.28,
+        fillOpacity: 0,
+        dash: "3 12",
+        translateX: 2,
+        translateY: 2
+      };
+    case "blackhole":
+    case "swirl":
+      return {
+        scale: mood.shapeScale * 0.92,
+        rotate: mood.rotate - 8,
+        strokeOpacity: mood.strokeOpacity * 0.26,
+        fillOpacity: mood.fillOpacity * 0.18,
+        dash: "10 20",
+        translateX: 0,
+        translateY: 0
+      };
+    case "feather":
+    case "waterflow":
+      return {
+        scale: mood.shapeScale * 1.08,
+        rotate: mood.rotate + 5,
+        strokeOpacity: mood.strokeOpacity * 0.24,
+        fillOpacity: 0,
+        dash: "12 16",
+        translateX: 5,
+        translateY: -3
+      };
+    case "fire":
+    case "lightning":
+    case "volcano":
+      return {
+        scale: mood.shapeScale * 0.98,
+        rotate: mood.rotate + 4,
+        strokeOpacity: mood.strokeOpacity * 0.22,
+        fillOpacity: mood.fillOpacity * 0.16,
+        dash: "16 10",
+        translateX: 3,
+        translateY: -2
+      };
+    default:
+      return null;
   }
 }
 
@@ -163,33 +355,47 @@ function StepFrame({
 
 function EmotionAura({ color, shape, phase, isEnding }) {
   const path = getShapePath(shape?.icon);
-  const spread = 1 + phase * 0.04;
-  const opacity = isEnding ? 0.24 : Math.max(0.28, 0.82 - phase * 0.11);
-  const fillOpacity = isEnding ? 0.11 : Math.max(0.14, 0.28 - phase * 0.025);
-  const blur = isEnding ? 56 : 28 + phase * 5;
-  const dash = phase > 2 ? "10 14" : "0";
+  const mood = getShapeMood(shape?.icon, phase, isEnding);
+  const echo = getShapeEcho(shape?.icon, mood);
+  const strokeWidth = shape?.icon === "web" ? 3 : 2.2;
 
   return (
     <div className={`aura-wrap ${isEnding ? "ending-aura" : ""}`} aria-hidden="true">
       <div
         className="aura-glow"
         style={{
-          background: `radial-gradient(circle, ${hexToRgba(color, isEnding ? 0.18 : 0.34)} 0%, ${hexToRgba(color, 0.12)} 42%, transparent 72%)`,
-          filter: `blur(${blur}px)`,
-          transform: `scale(${spread})`
+          background: `radial-gradient(circle, ${hexToRgba(color, mood.glowOpacity)} 0%, ${hexToRgba(color, 0.12)} 42%, transparent 72%)`,
+          filter: `blur(${mood.blur}px)`,
+          transform: `scale(${mood.glowScale})`
         }}
       />
       <svg className="aura-shape" viewBox="0 0 240 220">
+        {echo ? (
+          <path
+            d={path}
+            fill={hexToRgba(color, echo.fillOpacity)}
+            stroke={hexToRgba(color, echo.strokeOpacity)}
+            strokeWidth={strokeWidth}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray={echo.dash}
+            style={{
+              transform: `translate(${echo.translateX}px, ${echo.translateY}px) scale(${echo.scale}) rotate(${echo.rotate}deg)`,
+              transformOrigin: "center",
+              transition: "all 720ms ease"
+            }}
+          />
+        ) : null}
         <path
           d={path}
-          fill={hexToRgba(color, fillOpacity)}
-          stroke={hexToRgba(color, opacity)}
-          strokeWidth={shape?.icon === "web" ? 3 : 2.2}
+          fill={hexToRgba(color, mood.fillOpacity)}
+          stroke={hexToRgba(color, mood.strokeOpacity)}
+          strokeWidth={strokeWidth}
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeDasharray={dash}
+          strokeDasharray={mood.dash}
           style={{
-            transform: `scale(${spread})`,
+            transform: `scale(${mood.shapeScale}) rotate(${mood.rotate}deg)`,
             transformOrigin: "center",
             transition: "all 720ms ease"
           }}

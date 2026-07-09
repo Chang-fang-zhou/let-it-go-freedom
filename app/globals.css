@@ -322,13 +322,13 @@ button {
 
 .color-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
 }
 
 .color-tile {
-  min-height: 6.7rem;
-  padding: 1rem 1rem 1.08rem;
+  min-height: 5.7rem;
+  padding: 0.9rem 0.8rem 0.95rem;
   border-radius: var(--radius-soft);
   display: flex;
   align-items: flex-end;
@@ -342,7 +342,7 @@ button {
 }
 
 .color-tile span {
-  font-size: 1.04rem;
+  font-size: 0.95rem;
 }
 
 .color-tile.selected {
@@ -635,15 +635,26 @@ button {
 }
 
 @media (max-width: 380px) {
-  .color-grid,
   .shape-grid,
   .choice-grid,
   .choice-stack.dense {
     grid-template-columns: 1fr;
   }
 
+  .color-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .body-point span {
     font-size: 0.84rem;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 430px) {
+  .shape-grid,
+  .choice-grid,
+  .choice-stack.dense {
+    grid-template-columns: 1fr;
   }
 }
 
